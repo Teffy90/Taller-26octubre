@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
-import { View, Text, TextInput, Button, StyleSheet } from 'react-native';
-import axios from 'axios';
+import { View, Text, TextInput, Button, StyleSheet, Alert } from 'react-native';
 import { StatusBar } from 'expo-status-bar';
+import axios from 'axios';
 
 export default function App() {
   const [nombre, setNombre] = useState('');
@@ -19,14 +19,21 @@ export default function App() {
     };
 
     // Envía los datos al servidor
-    axios.post('url del backend', data)
+    axios.post('http://192.168.207.32:8000/api/fiesta', data)
       .then((response) => {
+        const mensaje = response.data.message;
         // Datos enviados con éxito	
-        console.log('Datos enviados con éxito');
+        Alert.alert('Datos enviados con éxito', mensaje);
+        console.log(response.mensaje);
+        setNombre('');
+        setApellido('');
+        setEdad('');
+        setAcompanantes('');
       })
-      .catch((error) => {
+      .catch(() => {
         // Maneja errores si es necesario
-        console.error('Error al enviar datos', error);
+        Alert.alert('Error', 'No se pudo guardar');
+        console.log(error);
       });
   };
 
