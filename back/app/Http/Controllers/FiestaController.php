@@ -18,11 +18,18 @@ class FiestaController extends Controller
         $fiesta->save();
         return redirect('/');
     }
+    
+    public function index()
+    {
+        $fiestas = Fiesta::all();
+        return view('home')->with('fiestas', $fiestas);
+    }
+
     public function destroy($id)
     {
         $fiesta = fiesta::find($id);
         $fiesta -> delete();
-        return redirect('/');
+        return redirect('/home');
     }
 
 }
