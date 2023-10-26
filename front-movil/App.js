@@ -19,12 +19,11 @@ export default function App() {
     };
 
     // Envía los datos al servidor
-    axios.post('http://192.168.207.32:8000/api/fiesta', data)
+    axios.post('http://192.168.101.7:8000/api/fiesta', data)
       .then((response) => {
         const mensaje = response.data.message;
         // Datos enviados con éxito	
         Alert.alert('Datos enviados con éxito', mensaje);
-        console.log(response.mensaje);
         setNombre('');
         setApellido('');
         setEdad('');
@@ -33,7 +32,10 @@ export default function App() {
       .catch(() => {
         // Maneja errores si es necesario
         Alert.alert('Error', 'No se pudo guardar');
-        console.log(error);
+        setNombre('');
+        setApellido('');
+        setEdad('');
+        setAcompanantes('');
       });
   };
 
