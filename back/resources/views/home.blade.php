@@ -5,7 +5,7 @@
     <div class="row justify-content-center">
         <div class="col-md-8">
             <div class="card">
-                <div class="card-header">{{ __('Dashboard') }}</div>
+                <div class="card-header">{{ __('Administrador') }}</div>
 
                 <div class="card-body">
                     @if (session('status'))
@@ -14,7 +14,7 @@
                         </div>
                     @endif
 
-                    {{ __('You are logged in!') }}
+                    {{ __('Estas logueado') }}
                 </div>
             </div><br>
             <h1> Gestion de Reservas </h1><br>
@@ -52,7 +52,10 @@
                   
                 </tbody>
               </table>
-              <p>Taller realizado por Estefany Ocampo, Adrian Camilo Ledezma</p>
+              <p>Taller realizado por:</p>
+              <p>Estefany Ocampo, Adrian Camilo Ledezma</p>
+              <p>Asignatura</p>
+              <p>Programación con Tecnologia Moviles</p>
         </div>
     </div>
 </div>

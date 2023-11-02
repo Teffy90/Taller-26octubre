@@ -19,7 +19,7 @@ export default function App() {
     };
 
     // Envía los datos al servidor
-    axios.post('http://192.168.101.7:8000/api/fiesta', data)
+    axios.post('http://192.168.1.94:8000/api/fiesta', data)
       .then((response) => {
         const mensaje = response.data.message;
         // Datos enviados con éxito	
@@ -41,6 +41,8 @@ export default function App() {
 
   return (
     <View style={styles.container}>
+    <Text style={styles.label}>Ingresa tu Reserva</Text>
+    <Text style={styles.label}>****************************</Text>
       <Text style={styles.label}>Nombre</Text>
       <TextInput
         style={styles.input}
